@@ -4,20 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Work_with_Interface.Data;
+using Work_with_Interface.Data.Interfaces;
 
 namespace Work_with_Interface.Controllers
 {
     public class ActorController : Controller
     {
-        private readonly AppDbContext _db;
+        private readonly IActorInterface _service;
 
-        public ActorController(AppDbContext db)
+        public ActorController(IActorInterface service)
         {
-            _db = db;
+            _service = service;
         }
         public IActionResult Index()
         {
-            var data = _db.actors.ToList();
+            var data = _service.getAll();
             return View(data);
         }
     }
