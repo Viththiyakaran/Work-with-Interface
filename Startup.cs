@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Work_with_Interface.Data;
+using Work_with_Interface.Data.Interfaces;
+using Work_with_Interface.Data.Repo;
 
 namespace Work_with_Interface
 {
@@ -26,6 +28,8 @@ namespace Work_with_Interface
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ServerCon")));
+
+            services.AddScoped<IActorInterface,ActorRepo>();
 
             services.AddControllersWithViews();
         }
