@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Actor>
+
+@{  ViewData["Title"] = "Actor Title"; }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Id) </th>
+            <th scope="col">@Html.DisplayNameFor(model => model.FullName)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Bip)</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.Id</th>
+            <td>@item.FullName</td>
+            <td>@item.Bip</td>
+            <td><a> Edit</a> | <a>Detail</a> |<a> Delete</a> </td>
+        </tr>
+        }
+
+
+
+    </tbody>
+</table>
