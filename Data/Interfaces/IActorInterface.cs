@@ -8,7 +8,7 @@ namespace Work_with_Interface.Data.Interfaces
 {
     public interface IActorInterface
     {
-        IEnumerable<Actor> getAll();
+       Task<IEnumerable<Actor>> getAll();
 
         Actor getById(int id);
 

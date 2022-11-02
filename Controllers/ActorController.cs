@@ -16,9 +16,9 @@ namespace Work_with_Interface.Controllers
         {
             _service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _service.getAll();
+            var data =await _service.getAll();
             return View(data);
         }
     }

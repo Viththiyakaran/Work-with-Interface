@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,9 +26,9 @@ namespace Work_with_Interface.Data.Repo
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Actor> getAll()
+        public async Task<IEnumerable<Actor>> getAll()
         {
-            var data = _db.actors.ToList();
+            var data = await _db.actors.ToListAsync();
             return data;
         }
 
