@@ -16,30 +16,45 @@ namespace Work_with_Interface.Data.Repo
         {
             _db = db;
         }
-        public void add(Actor actor)
+
+        public async Task addAsync(Actor actor)
         {
-            throw new NotImplementedException();
+           await  _db.actors.AddAsync(actor);
+           await _db.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var data = await _db.actors.FindAsync(id);
+
+             _db.actors.Remove(data);
+
+            await _db.SaveChangesAsync();
+        
+
         }
 
-        public async Task<IEnumerable<Actor>> getAll()
+      
+        public async Task<IEnumerable<Actor>> getAllAsync()
         {
             var data = await _db.actors.ToListAsync();
             return data;
         }
 
-        public Actor getById(int id)
+      
+        public async Task<Actor> getByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var data = await _db.actors.FirstOrDefaultAsync(n => n.Id == id);
+            return data;
         }
 
-        public Actor Update(int id, Actor newActor)
+        
+
+        public async Task<Actor> UpdateAsync(int id, Actor newActor)
         {
-            throw new NotImplementedException();
+             _db.actors.Update(newActor);
+            await _db.SaveChangesAsync();
+            return newActor;
         }
     }
 }
