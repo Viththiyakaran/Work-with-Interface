@@ -2,7 +2,11 @@
 
 @{  ViewData["Title"] = "Actor Title"; }
 
-<table class="table">
+<br />
+<a asp-action="Create" class="btn btn-info">New </a> 
+<br />
+
+<table class="table mt-4">
     <thead>
         <tr>
             <th scope="col">@Html.DisplayNameFor(model => model.Id) </th>
@@ -19,7 +23,7 @@
             <th scope="row">@item.Id</th>
             <td>@item.FullName</td>
             <td>@item.Bip</td>
-            <td><a> Edit</a> | <a>Detail</a> |<a> Delete</a> </td>
+            <td><a  asp-route-id="@item.Id" asp-action="Edit"> Edit</a> | <a asp-route-id="@item.Id" asp-action="Detail">Detail</a> |<a asp-route-id="@item.Id" asp-action="Delete"> Delete</a> </td>
         </tr>
         }
 

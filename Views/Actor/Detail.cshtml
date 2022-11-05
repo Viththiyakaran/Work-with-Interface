@@ -1,0 +1,16 @@
+﻿@model Actor
+
+<form >
+    <div class="form-group">
+        <label asp-for="FullName"></label>
+        <input disabled asp-for="FullName" type="text" class="form-control form-control-user" placeholder="Enter Your Name...">
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bip"></label>
+        <input   disabled asp-for="Bip" class="form-control" id="exampleInputPassword1" placeholder="Enter BIO ">
+        <span asp-validation-for="Bip" class="text-danger"></span>
+    </div>
+
+   <a class="btn btn-primary" asp-action="index"> Back to Main</a>
+</form>
