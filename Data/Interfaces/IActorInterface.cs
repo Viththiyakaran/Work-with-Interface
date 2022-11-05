@@ -8,15 +8,16 @@ namespace Work_with_Interface.Data.Interfaces
 {
     public interface IActorInterface
     {
-       Task<IEnumerable<Actor>> getAll();
+       Task<IEnumerable<Actor>> getAllAsync();
 
-        Actor getById(int id);
+       Task<Actor> getByIdAsync(int id);
 
-        void add(Actor actor);
+        Task addAsync(Actor actor);
 
-        Actor Update(int id, Actor newActor);
+        Task<Actor> UpdateAsync(int id, Actor newActor);
 
-        void Delete(int id);
+        Task DeleteAsync(int id);
+       
     }
 }
  
