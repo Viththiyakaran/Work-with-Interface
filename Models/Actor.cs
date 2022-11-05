@@ -13,8 +13,10 @@ namespace Work_with_Interface.Models
         [DisplayName("ID")]
         public int Id { get; set; }
         [DisplayName("Full Name")]
+        [Required(ErrorMessage = "Please enter your full name" )]
         public string FullName { get; set; }
         [DisplayName("Bio")]
+        [Required(ErrorMessage ="Please enter your bio")]
         public string Bip { get; set; }
     }
 }
